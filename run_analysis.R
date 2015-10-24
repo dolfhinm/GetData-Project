@@ -62,4 +62,4 @@ tidy <- dcast(varMelt, label + subject ~ variable, mean)
 write.table(tidy,file=".\\UCI HAR Dataset\\tidy.txt", row.names=FALSE)
 
 #create CodeBook.md with all variable
-write.table(names(tidy), file=".\\UCI HAR Dataset\\CodeBook.md", row.names=FALSE, quote=FALSE, col.names=FALSE)
+write.table(names(tidy), file=".\\UCI HAR Dataset\\CodeBook.md", row.names=FALSE, quote=FALSE, col.names=FALSE, sep="\t")
