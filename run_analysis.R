@@ -7,7 +7,7 @@
 #5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
-#download and unzip arxive
+#download and unzip archive
 url<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(url, destfile="projectdataset.zip")
 unzip("projectdataset.zip", overwrite=TRUE)
@@ -18,10 +18,10 @@ labels<-read.table("activity_labels.txt")
 features<-read.table("features.txt")[,2]
 names(labels)=c("labelid", "label")
 
-#filter only data for mean and std 
+#remember only data for mean and std 
 StdMeanFeatures<-grepl("mean|std", features)
 
-#read data train
+#read data train, name variable and filter data for mean and std
 setwd(".\\UCI HAR Dataset\\train")
 xTrain<-read.table("x_train.txt")
 labelTrain<-read.table("y_train.txt")
@@ -35,7 +35,7 @@ dataTrain<-cbind(xTrain,labelTrain,subjectTrain)
 
 dataTrain<-dataTrain[,StdMeanFeatures]
 
-#read data test
+#read data test, name variable and filter data for mean and std
 setwd(".\\UCI HAR Dataset\\test")
 xTest<-read.table("x_test.txt")
 labelTest<-read.table("y_test.txt")
